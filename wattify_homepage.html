@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wattify | Power Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0f0f0f;
+      color: #ffffff;
+    }
+    header {
+      padding: 20px;
+      background-color: #121212;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #0f0;
+    }
+    .logo {
+      font-size: 1.5em;
+      color: #0f0;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #0f0;
+    }
+    .hero {
+      height: 80vh;
+      background: linear-gradient(to bottom right, #0f0f0f, #1a1a1a);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      color: #0f0;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+    .hero button {
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      background-color: #0f0;
+      color: #000;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .hero button:hover {
+      transform: scale(1.05);
+    }
+    .products {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .products h2 {
+      color: #0f0;
+      margin-bottom: 30px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+    .product-card {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .product-card h3 {
+      color: #0f0;
+      margin-bottom: 5px;
+    }
+    footer {
+      background-color: #121212;
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid #0f0;
+      margin-top: 40px;
+    }
+    footer p {
+      color: #888;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Wattify</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Power Up. Anywhere. Anytime.</h1>
+    <p>Premium power banks for everyday life. Fast. Compact. Reliable.</p>
+    <button>Shop Now</button>
+  </section>
+
+  <section class="products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x150" alt="Power Bank 1">
+        <h3>Wattify Bolt 10K</h3>
+        <p>$29.99</p>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x150" alt="Power Bank 2">
+        <h3>Wattify Max 20K</h3>
+        <p>$49.99</p>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x150" alt="Power Bank 3">
+        <h3>Wattify Slim 5K</h3>
+        <p>$19.99</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Wattify. All rights reserved.</p>
+  </footer>
+</body>
+</html>
