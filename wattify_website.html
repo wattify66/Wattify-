@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wattify - Power on the Go</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; color: #333; }
+    header { background: #000; color: #fff; padding: 20px; text-align: center; }
+    nav a { margin: 0 10px; color: #fff; text-decoration: none; }
+    section { padding: 40px 20px; max-width: 1000px; margin: auto; }
+    .hero { background: #ddd; padding: 60px 20px; text-align: center; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .product { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .contact-form input, 
+    .contact-form textarea, 
+    .contact-form select {
+      width: 100%; 
+      padding: 10px; 
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+    .contact-form button { padding: 10px 20px; background: #000; color: #fff; border: none; cursor: pointer; }
+    .contact-form button:hover { background: #444; }
+    footer { background: #000; color: #fff; text-align: center; padding: 20px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Wattify</h1>
+    <p>Power on the Go</p>
+    <nav>
+      <a href="#mission">Mission</a>
+      <a href="#products">Products</a>
+      <a href="#order">Order Now</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Stay Charged Anytime, Anywhere</h2>
+    <p>Reliable and affordable power banks delivered to your door.</p>
+  </section>
+
+  <section id="mission">
+    <h2>Our Mission & Vision</h2>
+    <p><strong>Mission:</strong> To empower individuals and businesses across Lebanon with reliable, innovative, and portable energy solutions that keep them connected and productive anytime, anywhere.</p>
+    <p><strong>Vision:</strong> To be recognized as the leading provider of cutting-edge power solutions in the Middle East, driving sustainable growth and enhancing the daily lives of our customers through quality and trust.</p>
+  </section>
+
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="products">
+      <div class="product">
+        <h3>Wattify 10K</h3>
+        <p>10,000mAh Power Bank - $15</p>
+        <p><em>Fast charging, lightweight design.</em></p>
+        <button>Order - Cash on Delivery</button>
+      </div>
+      <div class="product">
+        <h3>Wattify Cable iPhone</h3>
+        <p>Fast Charging Cable - $7</p>
+        <p><em>Durable and high-speed USB-C to Lightning cable.</em></p>
+        <button>Order - Cash on Delivery</button>
+      </div>
+      <div class="product">
+        <h3>Wattify Brick</h3>
+        <p>Compact Wall Charger - $10</p>
+        <p><em>Dual USB ports with smart power distribution.</em></p>
+        <button>Order - Cash on Delivery</button>
+      </div>
+      <div class="product">
+        <h3>Wattify Cable Type-C to Type-C</h3>
+        <p>USB-C to USB-C Cable - $10</p>
+        <p><em>Supports fast charging and data transfer for modern devices.</em></p>
+        <button>Order - Cash on Delivery</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="order">
+    <h2>Order Now</h2>
+    <form action="https://formspree.io/f/yourformid" method="POST" class="contact-form" id="orderForm">
+      <input type="text" name="Name" placeholder="Your Name" required />
+      <input type="email" name="Email" placeholder="Your Email" required />
+      <input type="tel" name="Phone" placeholder="Your Phone Number" required />
+
+      <label for="product">Select Product:</label>
+      <select name="Product" id="product" required>
+        <option value="" data-price="0">--Choose a product--</option>
+        <option value="Wattify 10K" data-price="15">Wattify 10K - $15</option>
+        <option value="Wattify Cable iPhone" data-price="7">Wattify Cable iPhone - $7</option>
+        <option value="Wattify Brick" data-price="10">Wattify Brick - $10</option>
+        <option value="Wattify Cable Type-C to Type-C" data-price="10">Wattify Cable Type-C to Type-C - $10</option>
+      </select>
+
+      <input type="number" name="Quantity" id="quantity" placeholder="Quantity" min="1" value="1" required />
+      
+      <textarea name="Address" placeholder="Shipping Address" rows="3" required></textarea>
+
+      <textarea name="Message" placeholder="Additional details (optional)" rows="3"></textarea>
+
+      <p><strong>Total Price: $<span id="totalPrice">0</span></strong></p>
+      
+      <button type="submit">Place Order</button>
+    </form>
+
+    <script>
+      const productSelect = document.getElementById('product');
+      const quantityInput = document.getElementById('quantity');
+      const totalPriceSpan = document.getElementById('totalPrice');
+
+      function updateTotal() {
+        const selectedOption = productSelect.options[productSelect.selectedIndex];
+        const price = parseFloat(selectedOption.getAttribute('data-price')) || 0;
+        const quantity = parseInt(quantityInput.value) || 0;
+        const total = price * quantity;
+        totalPriceSpan.textContent = total.toFixed(2);
+      }
+
+      productSelect.addEventListener('change', updateTotal);
+      quantityInput.addEventListener('input', updateTotal);
+
+      // Initialize total price on page load
+      updateTotal();
+    </script>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Customer support available 24/7. We'll respond within 24 hours.</p>
+    <form class="contact-form" action="https://formspree.io/f/yourformid" method="POST">
+      <input type="text" name="Name" placeholder="Your Name" required />
+      <input type="email" name="Email" placeholder="Your Email" required />
+      <textarea name="Message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Wattify. All rights reserved.</p>
+    <p>Follow us on Instagram: <em>Coming Soon</em></p>
+  </footer>
+</body>
+</html>
